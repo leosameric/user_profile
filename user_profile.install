@@ -1,0 +1,83 @@
+<?php
+
+function user_profile_schema(){
+    
+  $schema['user_profile'] = array(
+    'description' => 'Researcher information.',
+    'fields' => array(
+      'sid' => array(
+        'description' => 'Researcher ID.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => "User's {users}.uid.",
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'not null' => TRUE,
+        'length' => 128,
+        'default' => '',
+        'description' => "Researcher's name.",
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'default' => '',
+        'description' => "Researcher's title.",
+      ),
+      'email' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'default' => '',
+        'description' => "Researcher's email.",
+      ),
+      'biography' => array(
+        'type' => 'varchar',
+        'length' => 552,
+        'default' => '',
+        'description' => "Researcher's biography.",
+      ),
+      'image_fid' => array(
+        'type' => 'int',
+        'description' => "Figure Image ID.",
+      ),
+      'created_time' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => "The time when the latest profile created.",
+      ),
+    ),
+    'primary key' => array('sid'),
+    'foreign keys' => array(
+      'user' => array(
+        'table' => 'users',
+        'columns' => array('sid' => 'uid'),
+      ),
+    ),
+  );
+
+  return $schema;
+    
+}
+
+/**
+ * Update researcher id type into serial 
+ */
+function user_profile_update_7001() {
+  db_drop_primary_key('user_profile');
+  db_change_field('user_profile', 'sid', 'sid',
+    array(
+      'description' => 'Researcher ID.',
+      'type' => 'serial',
+      'unsigned' => TRUE,
+      'not null' => TRUE,),
+    array(
+      'primary key' => array('sid'))
+  );
+}

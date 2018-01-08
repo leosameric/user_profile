@@ -1,0 +1,8 @@
+name = User_profile
+description = Build up user profile.
+dependencies[] = comment
+package = Core
+version = VERSION
+core = 7.x
+files[] = user_profile.test
+

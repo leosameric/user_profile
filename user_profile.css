@@ -1,0 +1,51 @@
+#r-img{
+  height:100px;
+  width:100px;
+  border-radius: 50%;
+  margin : 15px 15px 15px 0px;
+}
+#edit-link{
+  font-size: 15px;
+}
+.r-frame { 
+  width: 600px;
+  height: 250px;
+  border:5px lightgrey solid;
+  padding: 40px;
+}
+.r-frame.left-side,.r-frame.right-side { 
+  margin: 0 auto;
+  height: 173px; 
+  line-height: 173px;
+}
+.r-frame .left-side { 
+  width: 110px;
+  float: left;
+}
+.r-frame .right-side {
+  float: right;
+  width: 450px;
+  height: max-content;
+  margin:0px 10px 10px 10px;
+}
+.r-title, .mid-line, .r-email{
+  float: left;
+  margin : 4px;
+}
+.r-name, .title-row, .frame-biography{
+  margin : 4px;
+}
+.title-row{
+  height:30px;
+  margin-bottom: 20px;
+}
+.r-name{
+  font-size: 40px;
+  height: 45px;
+}
+.r-bio-title{
+  margin-bottom: 10px;
+}
+.r-biography{
+  font-size: 12px;  
+}

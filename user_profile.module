@@ -1,0 +1,24 @@
+<?php
+function user_profile_menu(){
+  $items['user_profile'] = array(
+    'title' => 'Researcher Profile',
+    'page callback' => 'researcher_profile_list',
+    'access callback' => 'user_access',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'user_profile.inc',
+    );
+  
+  $items['user_profile/inputform'] = array(
+    'title' => 'User Profile',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('researcher_profile_form'),  
+    'access callback' => 'user_access',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+    'file' => 'user_profile.inc',
+    );
+  
+  return $items;
+}
+
